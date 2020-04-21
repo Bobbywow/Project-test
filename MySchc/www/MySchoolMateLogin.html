@@ -1,0 +1,132 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel = "stylesheet" href="css/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="js/bootstrap.bundle.min.js"/>
+    <link rel = "stylesheet" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Log In</title>
+    <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+function do_login()
+{
+ var email=$("#email").val();
+ var pass=$("#password").val();
+ if(email!="" && pass!="")
+ {
+  $("#loading_spinner").css({"display":"block"});
+  $.ajax
+  ({
+  type:'post',
+  url:'https://evtimovb.cucstudents.org/API/do_login.php',
+  data:{
+   do_login:"do_login.php",
+   email:email,
+   password:email
+  },
+  success:function(response) {
+  if(response=="success")
+  {
+    window.location.href="MySchoolMateHomePage.html";
+  }
+  else
+  {
+    $("#loading_spinner").css({"display":"none"});
+    alert("Wrong Details");
+  }
+  }
+  });
+ }
+
+ else
+ {
+  alert("Please Fill All The Details");
+ }
+
+ return false;
+}
+</script>
+</head>
+<body id=Login>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <p class="navbar-brand">MySchoolMate</p>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="MySchoolMateSchedule.html">Make a Schedule</a>
+      </li>
+                      <li class="nav-item">
+        <a class="nav-link" href="PrimarySchools.html">Primary Schools</a>
+      </li>
+              <li class="nav-item">
+        <a class="nav-link" href="SecondarySchools.html">Secondary Shools</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="MySchoolMateNotePlace.html">Note Place</a>
+      </li>
+        <!--Dropdown starts-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="MySchoolMateAbouUs.html">About us</a>
+          <a class="dropdown-item" href="MySchoolMateTermsAndConditions.html">Terms and Conditions</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="MySchoolMateFeedback.html">Feedback</a>
+            <a class="dropdown-item" href="MySchoolMateQuiz.html">Qquiz</a>
+        </div>
+      </li>
+        <!--Drop down ends-->
+    </ul>
+  </div>
+</nav>
+                             
+<div id="wrapper">
+
+<div id="login_form">
+ <h1>LOGIN</h1>
+ <p id="login_label">Enter Email and Password</p>
+ <form method="#" action="#" onsubmit="return do_login.php();"><!--method="post"action="https://evtimovb.cucstudents.org/API/do_login.php"-->
+  <input type="text" name="emailid" id="emailid" placeholder="Enter Email">
+  <br>
+  <input type="password" name="password" id="password" placeholder="***********">
+  <br>
+  <input type="submit" name="login" value="LOGIN" id="login_button">
+ </form>
+    <p id="loading_spinner"><img src="img/big-loading-gif.gif"></p><!-- lOADING IMAGE  -->
+            <p>This option is not available at the moment, we are realy sorry for any inconveniences!</p> <!-- Massage -->
+                    <div>
+                        <a href="MySchoolMateTermsAndConditions.html">
+            <p style="text-align: center"> Terms and Conditions</p>
+                        </a>
+        </div>
+    </div>
+</div>
+    <div class="container">
+            <div class="footer">
+            <p style="text-align: bottom center"> Bozhidar Evtimov© 2019<a href="MySchoolMateTermsAndConditions.html">Terms and Conditions</a></p>
+        </div>
+    </div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

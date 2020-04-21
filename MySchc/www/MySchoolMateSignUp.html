@@ -1,0 +1,103 @@
+<html>
+<head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"/>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel = "stylesheet" href="css/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="js/bootstrap.bundle.min.js"/>
+    <link rel = "stylesheet" href="style.css"/>
+<link href="login_style.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body id=SignUp>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <p class="navbar-brand">MySchoolMate</p>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+      <li class="nav-item">
+        <a class="nav-link" href="MySchoolMateSchedule.html">Make a Schedule</a>
+      </li>
+                      <li class="nav-item">
+        <a class="nav-link" href="PrimarySchools.html">Primary Schools</a>
+      </li>
+              <li class="nav-item">
+        <a class="nav-link" href="SecondarySchools.html">Secondary Shools</a>
+      </li>
+                <li class="nav-item">
+        <a class="nav-link" href="MySchoolMateNotePlace.html">Note Place</a>
+      </li>
+        <!--Dropdown starts-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="MySchoolMateAbouUs.html">About us</a>
+          <a class="dropdown-item" href="MySchoolMateTermsAndConditions.html">Terms and Conditions</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="MySchoolMateFeedback.html">Feedback</a>
+            <a class="dropdown-item" href="MySchoolMateQuiz.html">Qquiz</a>
+        </div>
+      </li>
+        <!--Drop down ends-->
+    </ul>
+  </div>
+</nav>
+     <form action="action_page.php" style="border:1px solid #ccc">
+        <div class="container">
+    <h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+</form>
+    <div class="container">
+            <div class="footer">
+            <p style="text-align: bottom center"> Bozhidar Evtimov© 2019<a href="MySchoolMateTermsAndConditions.html">Terms and Conditions</a></p>
+        </div>
+    </div>
+</body>
+</html>

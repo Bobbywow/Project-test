@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel = "stylesheet" href="css/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="js/bootstrap.bundle.min.js"/>
+    <link rel = "stylesheet" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Schedule</title>
+</head>
+<body id=Schedule>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <p class="navbar-brand">MySchoolMate</p>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+      </li>
+                      <li class="nav-item">
+        <a class="nav-link" href="PrimarySchools.html">Primary Schools</a>
+      </li>
+              <li class="nav-item">
+        <a class="nav-link" href="SecondarySchools.html">Secondary Shools</a>
+      </li>
+                <li class="nav-item">
+        <a class="nav-link" href="MySchoolMateNotePlace.html">Note Place</a>
+      </li>
+        <!--Dropdown starts-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="MySchoolMateAbouUs.html">About us</a>
+          <a class="dropdown-item" href="MySchoolMateTermsAndConditions.html">Terms and Conditions</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="MySchoolMateFeedback.html">Feedback</a>
+            <a class="dropdown-item" href="MySchoolMateQuiz.html">Qquiz</a>
+        </div>
+      </li>
+        <!--Drop down ends-->
+    </ul>
+  </div>
+</nav>
+    <!--Shedule start-->
+   <div class="section">
+            <form> <!-- Textarea for Name-->
+  <textarea rows="1" cols="10" id="save_name" placeholder="Enter name.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_name')  
+ , '_name_str'                            
+ )
+);  //end IIFE
+</script>
+            <table> <!--Table for the schedule-->
+                <tr>
+                    <th><font color="black">Time</font></th>
+                    <th><font color="black">Mon</font></th>
+                    <th><font color="black">Tue</font></th>
+                    <th><font color="black">Wed</font></th>
+                    <th><font color="black">Thu</font></th>
+                    <th><font color="black">Fri</font></th>
+                </tr>
+                <tr>
+                    <td>	
+					<form>
+  <textarea rows="1" cols="5" id="save_my_time" placeholder="Enter time here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  // check for local storage support
+  if(window.localStorage){
+    // if there was data stored, retrieve it and output it to the elment
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    // when the element is blurred and the content is changed
+    elm.onchange=function(){
+      // check if the textarea is empty and save or remove localStorage entry
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    // finally, a form's reset does NOT fire it's element's onchange()
+    // either 'fix' the reset-button (using `this.form.reset()`)
+    // or the form's `onreset` handler (example below:)
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } // else handle the lack of Storage-support differently..
+}( document.getElementById('save_my_time')  // pass in a textarea
+ , 'my_time_str'                            // pass key-identifier for localStorage
+ )
+); //end IIFE
+</script>
+                    </td>
+                    <td class="selected"> 	<form>
+  <textarea rows="1" cols="7" id="save_monday" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_monday')  
+ , '_monday_str'                            
+ )
+);  //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_tuesday" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_tuesday')  
+ , '_tuesday_str'                            
+ )
+);  //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_wednesday" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_wednesday') 
+ , '_wednesday_str'                            
+ )
+);  //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_thursday" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_thursday')  
+ , '_thursday_str'                            
+ )
+);  //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_friday" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_friday')
+ , '_friday_str'                            
+ )
+);  //end IIFE
+</script> </td>
+                </tr>
+                <tr>
+                    <td><form>
+  <textarea rows="1" cols="5" id="save_my_time1" placeholder="Enter time here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_my_time1')  
+ , 'my_time1_str'                          
+ )
+);  //end IIFE
+</script></td>
+					<td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_monday1" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_monday1')  
+ , '_monday1_str'                            
+ )
+); //end IIFE
+</script> </td>
+                    <td class="selected">  <form>
+  <textarea rows="1" cols="7" id="save_tuesday1" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_tuesday1')  
+ , '_tuesday1_str'                           
+ )
+);  //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_wednesday1" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_wednesday1')  
+ , '_wednesday1_str'                          
+ )
+);  //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_thursday1" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_thursday1')  
+ , '_thursday1_str'                            
+ )
+); //end IIFE
+</script>  </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_friday1" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_friday1') 
+ , '_friday1_str'                            
+ )
+); //end IIFE
+</script> </td>
+                </tr>
+                <tr>
+                    <td> <form>
+  <textarea rows="1" cols="5" id="save_my_time2" placeholder="Enter time here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_my_time2') 
+ , 'my_time2_str'                            
+ )
+);  //end IIFE
+</script> </td>
+                    <td class="selected">  <form>
+  <textarea rows="1" cols="7"  id="save_monday2" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_monday2')  
+ , '_monday2_str'                            
+ )
+); 
+</script>  </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_tuesday2" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_tuesday2')
+ , '_tuesday2_str'                            
+ )
+); //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_wednesday2" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_wednesday2') 
+ , '_wednesday2_str'                            
+ )
+); //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_thursday2" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_thursday2')  
+ , '_thursday2_str'                           
+ )
+); //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_friday2" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  }
+}( document.getElementById('save_friday2') 
+ , '_friday2_str'                            
+ )
+); //end IIFE
+</script> </td>
+                </tr>
+                <tr>
+                    <td> <form>
+  <textarea rows="1" cols="5" id="save_my_time3" placeholder="Enter time here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_my_time3')  
+ , 'my_time3_str'                            
+ )
+); //end IIFE
+</script>  </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_monday3" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_monday3')    
+ , '_monday3_str'                            
+ )
+); //end IIFE
+</script>  </td>
+                    <td class="selected">  <form>
+  <textarea rows="1" cols="7" id="save_tuesday3" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_tuesday3')  
+ , '_tuesday3_str'                            
+ )
+); //end IIFE
+</script> </td>
+                    <td class="selected">  <form>
+  <textarea rows="1" cols="7" id="save_wednesday3" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_wednesday3') 
+ , '_wednesday3_str'                            
+ )
+); //end IIFE
+</script>  </td>
+                    <td class="selected">  <form>
+  <textarea rows="1" cols="7" id="save_thursday3" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  }
+}( document.getElementById('save_thursday3')  
+ , '_thursday3_str'                            
+ )
+); //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_friday3" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_friday3')  
+ , '_friday3_str'                           
+ )
+); //end IIFE
+</script> </td>
+                </tr>
+                <tr>
+                    <td> <form>
+  <textarea rows="1" cols="5" id="save_my_time4" placeholder="Enter time here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_my_time4')  
+ , 'my_time4_str'                            
+ )
+); //end IIFE
+</script>  </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_monday4" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_monday4') 
+ , '_monday4_str'                            
+ )
+); //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_tuesday4" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_tuesday4') 
+ , '_tuesday4_str'                            
+ )
+); //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_wednesday4" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_wednesday4')  
+ , '_wednesday4_str'                            
+ )
+);  //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_thursday4" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_thursday4')  
+ , '_thursday4_str'                            
+ )
+);  //end IIFE
+</script> </td>
+                    <td class="selected"> <form>
+  <textarea rows="1" cols="7" id="save_friday4" placeholder="Type here.."></textarea>
+</form>
+<script>
+(function(elm, key){
+  if(window.localStorage){
+    if(localStorage.getItem(key)) elm.value=localStorage.getItem(key);
+    elm.onchange=function(){
+      localStorage[this.value?'setItem':'removeItem'](key, this.value);
+    };
+    elm.form.onreset=function(){ localStorage.removeItem(key); };
+  } 
+}( document.getElementById('save_friday4')  
+ , '_friday4_str'                            
+ )
+); //end IIFE
+</script> </td>
+                </tr>
+            </table>
+        </div>
+            <button type="button" class="btn btn-primary">Save</button>
+        <a href="MySchoolMateSchedule2.html">
+            <button type="button" class="btn btn-primary">Shedule 2</button>
+        </a>
+    <div class="container">
+            <div class="footer">
+            <p style="text-align: bottom center"> Bozhidar Evtimov© 2019<a href="MySchoolMateTermsAndConditions.html">Terms and Conditions</a></p>
+        </div>
+    </div>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

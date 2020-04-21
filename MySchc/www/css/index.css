@@ -1,0 +1,400 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    background: url("../img/Background-Wallpaper-3A6.jpg");
+        background-image: no-repeat; 
+}
+p.aboutUs{ /*about us text properties*/
+    text-align: top;
+   color:black;
+   font-size: 10pt;
+   text-shadow: 5px 2px 4px gray;
+}  
+#Schedule
+{
+    background: url("../img/Background-Wallpaper-3A6.jpg");       /*background for home page*/
+            background-image: no-repeat;
+}
+/*Log in page and form design*/
+#Login
+body
+{
+ text-align:center;
+ width:100%;
+ margin:0 auto;
+ padding:0px;
+ font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+ background-color:#819FF7;
+}
+#wrapper
+{
+ margin:0 auto;
+ padding:0px;
+ text-align:center;
+ width:995px;
+}
+#wrapper h1
+{
+ margin-top:50px;
+ font-size:45px;
+ color:#0B2161;
+}
+#wrapper h1 a
+{
+ color:#0B2161;
+ font-size:18px;
+}
+#wrapper h2 input[type="submit"]
+{
+ background:none;
+ border:none;
+ text-decoration:underline;
+ font-size:17px;
+}
+#login_form
+{
+ background-color:white;
+ width:360px;
+ padding:20px;
+ box-sizing:border-box;
+position: fixed;
+ box-shadow:0px 0px 10px 0px #2E64FE;
+}
+#login_form h1
+{
+ text-align:center;
+ margin:0px;
+ color:#0B2161;
+ font-size:27px;
+ margin-bottom:20px;
+}
+#login_form #login_label
+{
+ color:#0B2161;
+}
+#login_form input[type="text"],input[type="password"]
+{
+ width:250px;
+ height:40px;
+ padding-left:5px;
+ margin:5px;
+ border-radius:2px;
+ border:1px solid #2E64FE;
+}
+#login_form input[type="submit"]
+{
+ background-color:#2E64FE;
+ color:white;
+ border:none;
+ border-bottom:3px solid #0040FF;
+ width:250px;
+ height:45px;
+ border-radius:2px;
+ margin-left:-4px;
+ margin-top:5px;
+}
+#login_form #loading_spinner
+{
+ display:none;
+}
+#SignUp{
+    {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box}}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: mediumblue;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+#btLogIn{
+  width: 50%;
+  border: none;
+  padding: 15px;
+}
+@-ms-viewport{
+  width: device-width;
+}
+/*Slide show starts*/
+.crossfade > figure {
+  animation: imageAnimation 30s linear infinite 0s;
+  backface-visibility: hidden;
+  background-size: cover;
+  background-position: center center;
+  color: transparent;
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 0;
+}
+.crossfade > figure:nth-child(1) { background-image: url('../img/Secondary3.jpg'); }
+
+.crossfade > figure:nth-child(2) {
+  animation-delay: 6s;
+  background-image: url('../img/engaging-parents-help-children-succeed-france.jpg');
+}
+
+.crossfade > figure:nth-child(3) {
+  animation-delay: 12s;
+  background-image: url('../img/boy_school_class_working_thinking_puzzled_studying.jpg');
+}
+
+.crossfade > figure:nth-child(4) {
+  animation-delay: 18s;
+  background-image: url('../img/image.jpg');
+}
+
+.crossfade > figure:nth-child(5) {
+  animation-delay: 24s;
+  background-image: url('../img/parent-teacher-467x267.jpg');
+}
+@keyframes 
+imageAnimation {  0% {
+ animation-timing-function: ease-in;
+ opacity: 0;
+}
+ 8% {
+ animation-timing-function: ease-out;
+ opacity: 1;
+}
+ 17% {
+ opacity: 1
+}
+ 25% {
+ opacity: 0
+}
+ 100% {
+ opacity: 0
+}
+    /*Slideshow Finish*/
+}
+.Rating{
+  overflow: hidden;
+    clear: both;
+    max-width: 940px;
+    padding-top: 26px;
+    color: #aaa;
+    position: fixed;
+    height: 90px;
+    width: 50%;
+    bottom: 0;
+    right: 10;
+    left: 0;
+    margin: 0 auto;
+    padding-bottom: 0;
+    text-align: left;
+}
+/*FOOTER PROPERTIES*/
+.footer{
+    overflow: hidden;
+    clear: both;
+    max-width: 940px;
+    padding-top: 26px;
+    color: #aaa;
+    position: fixed;
+    height: 95px;
+    width: 50%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    padding-bottom: 0;
+    text-align: center;
+}
+/*  CARDS */
+.col-sm-6{
+      display: flex;
+}
+/* css here */
+
+{
+  border: 1px dotted black;
+}
+
+p.question {
+  font-family: Arial, sans-serif;
+	  font-size:20px;
+  color: #2E2E2E;
+  margin-bottom:0px;
+}
+
+h2.quizHeader {
+  font-family: Arial, sans-serif;
+  font-weight:normal;
+  font-size:25px;
+  line-height: 27px;
+  margin: 24px 0 12px 0;
+  padding: 0 0 4px 0;
+  border-bottom: 1px solid #a2a2a2;
+}
+
+h2.quizScore{
+  font-family: Arial, sans-serif;
+  font-size:25px;
+}
+
+div.quizAnswers{
+  font-family: Arial, sans-serif;
+  font-size:16px;
+  color: #424242;
+  padding: 4px 0 4px 0;
+}
+
+label {
+  font-family: Arial, sans-serif;
+  font-size:14px;
+  color: #424242;
+  vertical-align:top;
+}
+
+input.answer[type="radio"] {
+  margin-bottom: 10px;
+}
+
+input.quizSubmit[type="submit"] {
+  -webkit-background-clip: border-box;
+  -webkit-background-origin: padding-box;
+  -webkit-background-size: auto;
+  -webkit-transition-delay: 0s, 0s;
+  -webkit-transition-duration: 0.2s, 0.2s;
+  -webkit-transition-property: color, background-color;
+  -webkit-transition-timing-function: ease, ease;
+  box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 5px 0px;
+  color: #ffffff;
+  background-color: #c30b0a;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  text-transform:uppercase;
+  height:35px;
+  width:85px;
+  border: 1px solid #5E5E5E;
+  border-radius:5px;
+  
+ }
+
+input.quizSubmit[type="submit"]:hover {
+  color: #ffffff;
+  background: #680f11;
+  text-decoration: none;
+}
+
+table {
+  background-color: #F2F2F2;
+	  border:1px solid #BDBDBD;
+  border-radius:5px;
+  padding:10px;
+  padding-left:25px;
+  box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 1px 0px;
+}
+
+th {
+  
+}
+
+tr {
+  
+}
+
+td {
+
+}
+
+.submitter {
+	  width:85px;
+}
+
+.hide {
+	  display:none;
+}
+.table-resposive{
+}
+
+/*SFS light red = #c30b0a;
+SFS dark red = #9f2026; */
+
+
+

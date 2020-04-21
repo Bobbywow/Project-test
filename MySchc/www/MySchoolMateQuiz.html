@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel = "stylesheet" href="css/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="js/bootstrap.bundle.min.js"/>
+    <link rel = "stylesheet" href="style.css"/>
+    <title>Terms and Conditions</title>
+</head>
+<body id=Terms>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <p class="navbar-brand">MySchoolMate</p>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="MySchoolMateSchedule.html">Make a Schedule</a>
+      </li>
+                      <li class="nav-item">
+        <a class="nav-link" href="PrimarySchools.html">Primary Schools</a>
+      </li>
+              <li class="nav-item">
+        <a class="nav-link" href="SecondarySchools.html">Secondary Shools</a>
+      </li>
+                        <li class="nav-item">
+        <a class="nav-link" href="MySchoolMateNotePlace.html">Note Place</a>
+      </li>
+        <!--Dropdown starts-->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="MySchoolMateAbouUs.html">About us</a>
+          <a class="dropdown-item" href=MySchoolMateTermsAndConditions.html>Terms and Conditions</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="MySchoolMateFeedback.html">Feedback</a>
+            <a class="dropdown-item" href="MySchoolMateQuiz.html">Qquiz</a>
+        </div>
+      </li>
+        <!--Drop down ends-->
+    </ul>
+  </div>
+</nav>
+                              <!--quiz start -->
+        <script>	function submitQuiz() {
+		console.log('submitted');
+
+	// get each answer score
+		function answerScore (qName) {
+			var radiosNo = document.getElementsByName(qName);
+
+			for (var i = 0, length = radiosNo.length; i < length; i++) {
+   				if (radiosNo[i].checked) {
+			// do something with radiosNo
+					var answerValue = Number(radiosNo[i].value);
+				}
+			}
+			// change NaNs to zero
+			if (isNaN(answerValue)) {
+				answerValue = 0;
+			}
+			return answerValue;
+		}
+
+	// calc score with answerScore function
+		var calcScore = (answerScore('q1') + answerScore('q2') + answerScore('q3') + answerScore('q4') + answerScore('q5') + answerScore('q6') + answerScore('q7') + answerScore('q8'));
+		console.log("CalcScore: " + calcScore); // it works!
+
+	// function to return correct answer string
+		function correctAnswer (correctStringNo, qNumber) {
+			console.log("qNumber: " + qNumber);  // logs 1,2,3,4 after called below
+			return ("The correct answer for question #" + qNumber + ": &nbsp;<strong>" +
+				(document.getElementById(correctStringNo).innerHTML) + "</strong>");
+			}
+
+	// print correct answers only if wrong (calls correctAnswer function)
+		if (answerScore('q1') === 0) {
+			document.getElementById('correctAnswer1').innerHTML = correctAnswer('correctString1', 1);
+		}
+		if (answerScore('q2') === 0) {
+			document.getElementById('correctAnswer2').innerHTML = correctAnswer('correctString2', 2);
+		}
+		if (answerScore('q3') === 0) {
+			document.getElementById('correctAnswer3').innerHTML = correctAnswer('correctString3', 3);
+		}
+		if (answerScore('q4') === 0) {
+			document.getElementById('correctAnswer4').innerHTML = correctAnswer('correctString4', 4);
+		}
+                if (answerScore('q5') === 0) {
+			document.getElementById('correctAnswer5').innerHTML = correctAnswer('correctString5', 5);
+		}
+                if (answerScore('q6') === 0) {
+			document.getElementById('correctAnswer6').innerHTML = correctAnswer('correctString6', 6);
+		}
+                if (answerScore('q7') === 0) {
+			document.getElementById('correctAnswer7').innerHTML = correctAnswer('correctString7', 7);
+		}
+                if (answerScore('q8') === 0) {
+			document.getElementById('correctAnswer8').innerHTML = correctAnswer('correctString8', 8);
+		}
+
+	// calculate "possible score" integer
+		var questionCountArray = document.getElementsByClassName('question');
+
+		var questionCounter = 0;
+		for (var i = 0, length = questionCountArray.length; i < length; i++) {
+			questionCounter++;
+		}
+
+	// show score as "score/possible score"
+		var showScore = "Your Score: " + calcScore +"/" + questionCounter;
+	// if 4/4, "perfect score!"
+		if (calcScore === questionCounter) {
+			showScore = showScore + "&nbsp; <strong>Perfect Score!</strong>"
+		};
+		document.getElementById('userScore').innerHTML = showScore;
+	}
+
+$(document).ready(function() {
+
+	$('#submitButton').click(function() {
+		$(this).addClass('hide');
+	});
+
+});</script>
+    <div class="table-resposive">
+     <h2 class="quizHeader">Take a Quiz!</h2>
+  
+	<table style="align-content: center" "font-size: 3px">
+	<tr>
+	  <td>
+	  	<div>
+	  		<p  style="font-size: 15px; color: darkorange; align-content: center" class="question">Name the school that Harry Potter attended?#1</p>
+
+	    	<ul>
+	    	<input class="answer" type="radio" name="q1" value="1">
+	        <label id="correctString1">Hogwarts</label>
+	    	<br>
+	        <input class="answer" type="radio" name="q1" value="0">
+	        <label>Pagwarts</label>
+	        <br>
+	        <input class="answer" type="radio" name="q1" value="0">
+	        <label>Mongonory Academy</label>
+	        <br>
+	        <input class="answer" type="radio" name="q1" value="0">
+	        <label>CU Coventry</label>
+    		</ul>
+	  	</div>
+	  </td>
+          <td>
+	  	<div>
+	  		<p   style="font-size: 15px; color: darkorange; align-content: center" class="question">Which country is home to the kangaroo?#2</p>
+
+	    	<ul>
+	    	<input class="answer" type="radio" name="q2" value="1">
+	        <label id="correctString2">Australia </label>
+	    	<br>
+	        <input class="answer" type="radio" name="q2" value="0">
+	        <label>United Kingdom</label>
+	        <br>
+	        <input class="answer" type="radio" name="q2" value="0">
+	        <label>Irland</label>
+	        <br>
+	        <input class="answer" type="radio" name="q2" value="0">
+	        <label>India</label>
+    		</ul>
+	  	</div>
+	  </td>
+        </tr>
+        <tr>
+          <td>
+	  	<div>
+	  		<p   style="font-size: 15px; color: darkorange; align-content: center" class="question"> Which country sent an Armada to attack Britain in 1588?#3</p>
+
+	    	<ul>
+	    	<input class="answer" type="radio" name="q3" value="1">
+	        <label id="correctString3">Spain</label>
+	    	<br>
+	        <input class="answer" type="radio" name="q3" value="0">
+	        <label>Germany</label>
+	        <br>
+	        <input class="answer" type="radio" name="q3" value="0">
+	        <label>France</label>
+	        <br>
+	        <input class="answer" type="radio" name="q3" value="0">
+	        <label>United States</label>
+    		</ul>
+	  	</div>
+	  </td>
+          <td>
+	  	<div>
+	  		<p   style="font-size: 15px; color: darkorange; align-content: center" class="question">What is the top colour in a rainbow?#4</p>
+
+	    	<ul>
+	    	<input class="answer" type="radio" name="q4" value="1">
+	        <label id="correctString4">Red</label>
+	    	<br>
+	        <input class="answer" type="radio" name="q4" value="0">
+	        <label>Yellow</label>
+	        <br>
+	        <input class="answer" type="radio" name="q4" value="0">
+	        <label>Purperl</label>
+	        <br>
+	        <input class="answer" type="radio" name="q4" value="0">
+	        <label>Green</label>
+    		</ul>
+	  	    </div>
+        </td>
+        <td>
+        </tr>
+        <tr>
+	       <tr>
+           <td>
+	  	    <div>
+	  		<p   style="font-size: 15px; color: darkorange; align-content: center" class="question">Which big country is closest to New Zealand?#5</p>
+
+	    	<ul>
+	        <input class="answer" type="radio" name="q5" value="0">
+	        <label>Germany</label>
+	        <br>
+	        <input class="answer" type="radio" name="q5" value="1">
+	        <label id="correctString5">Australia</label>
+	        <br>
+	        <input class="answer" type="radio" name="q5" value="0">
+	        <label>Bulgaria</label>
+	        <br>
+	        <input class="answer" type="radio" name="q5" value="0">
+	        <label>Unitated Kingdom</label>
+	    	</ul>
+		</div>
+	  </td>
+	  <td>
+	  	<div>
+	  		<p   style="font-size: 15px; color: darkorange; align-content: center" class="question">What is the name of the policeman in the pre-school children’ television series Balamory? #6</p>
+
+	    	<ul>
+	        <input class="answer" type="radio" name="q6" value="0">
+	        <label>Ivan</label>
+	        <br>
+	        <input class="answer" type="radio" name="q6" value="1">
+	        <label id="correctString6"> PC Plum</label>
+	        <br>
+	        <input class="answer" type="radio" name="q6" value="0">
+	        <label>John</label>
+	        <br>
+	        <input class="answer" type="radio" name="q6" value="0">
+	        <label>Igor</label>
+    		</ul>
+	  	</div>
+	  </td>
+               </tr>
+        <tr>
+        <td>
+	  	<div>
+	  		<p  style="font-size: 15px; color: darkorange; align-content: center"  class="question">Who created the children’s book character Tracy Beaker?#7</p>
+
+	    	<ul>
+	        <input class="answer" type="radio" name="q7" value="0">
+	        <label> Jack Johnson</label>
+	        <br>
+	        <input class="answer" type="radio" name="q7" value="1">
+	        <label id="correctString7">Jacqueline Wilson</label>
+	        <br>
+	        <input class="answer" type="radio" name="q7" value="0">
+	        <label>Elisabet Taylor</label>
+	        <br>
+	        <input class="answer" type="radio" name="q7" value="0">
+	        <label>John Smith</label>
+    		</ul>
+	  	</div>
+	  </td>
+        <td>
+	  	<div>
+	  		<p  style="font-size: 15px; color: darkorange; align-content: center"  class="question">How many colours are in a rainbow?#8</p>
+
+	    	<ul>
+	        <input class="answer" type="radio" name="q8" value="0">
+	        <label>6</label>
+	        <br>
+	        <input class="answer" type="radio" name="q8" value="1">
+	        <label id="correctString8">7</label>
+	        <br>
+	        <input class="answer" type="radio" name="q8" value="0">
+	        <label>8</label>
+	        <br>
+	        <input class="answer" type="radio" name="q8" value="0">
+	        <label>5</label>
+    		</ul>
+	  	</div>
+	  </td>
+	</tr>
+	</table>
+<br/>
+  <div class="submitter">
+          <input class="quizSubmit" id="submitButton" onClick="submitQuiz()"
+          type="submit" value="Submit" />
+    </div>
+  
+<!--show only wrong answers on submit-->
+    <div class="quizAnswers" id="correctAnswer1"></div>
+	    <div class="quizAnswers" id="correctAnswer2"></div>
+    <div class="quizAnswers" id="correctAnswer3"></div>
+    <div class="quizAnswers" id="correctAnswer4"></div>
+        <div class="quizAnswers" id="correctAnswer5"></div>
+        <div class="quizAnswers" id="correctAnswer6"></div>
+        <div class="quizAnswers" id="correctAnswer7"></div>
+        <div class="quizAnswers" id="correctAnswer8"></div>
+    
+
+<!--show score upon submit-->
+    <div>
+    	<h2 class="quizScore" id="userScore"></h2>
+    </div>
+    </div>
+    <!--quiz ends -->
+                          <!--Rating strat -->
+    <div class=Rating>
+        <span class="likebtn-wrapper" data-theme="custom" data-icon_l="hrt10" data-icon_d="thmb4-d" data-icon_l_c_v="#05fbc2" data-identifier="item_1"></span>
+<script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+    </div>
+        <!--Rating ends-->
+    <div class="container">
+            <div class="footer">
+            <p style="text-align: bottom center"> Bozhidar Evtimov© 2019<a href="MySchoolMateTermsAndConditions.html">Terms and Conditions</a></p>
+        </div>
+    </div>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="js/like-dislike.js"></script>
+    </body>
+</html>
